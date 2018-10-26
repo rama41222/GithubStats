@@ -1,0 +1,35 @@
+{
+  "name": "Github-Stats",
+  "version": "1.0.0",
+  "description": "My scrumtrulescent Nuxt.js project",
+  "author": "rama41222",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "config": {
+    "nuxt": {
+      "host": "localhost",
+      "port": "3003"
+    }
+  },
+  "dependencies": {
+    "@nuxtjs/auth": "^4.5.2",
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/toast": "^3.0.1",
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0-beta",
+    "cross-env": "^5.2.0",
+    "epic-spinners": "^1.0.3",
+    "nuxt": "^2.0.0",
+    "vee-validate": "^2.1.0-beta.9",
+    "vue-server-renderer": "2.5.16",
+    "vue-template-compiler": "2.5.16"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
