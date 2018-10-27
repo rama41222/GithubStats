@@ -1,25 +1,33 @@
 <template>
     <div>
-      <h1>callback</h1>
     </div>
 </template>
 
 <script>
     export default {
-        mounted(){
-          try {
-            const {data} = await app.$axios.$post(url, null);
-            auth.setToken('local', "Bearer "+ data.access_token);
+       mounted(){
+         this.fetchUser()
+      },
+      methods: {
+        async fetchUser(){ try {
+          const accessToken = this.$route.query.access_token  || null;
+          if(accessToken) {
+            this.$auth.setToken('github', accessToken);
             setTimeout( async () => {
-              auth.setStrategy('local');
+              // this.$auth.setStrategy('github');
               setTimeout( async () => {
-                await auth.fetchUser();
-              })
-            });
-          } catch (e) {
-            console.log(e);
+                await this.$store.dispatch('fetchUser', accessToken);
+
+              });
+            })
+          } else {
+            this.$router.push('/')
           }
-        }
+        } catch (e) {
+          console.log(e);
+          this.$router.push('/')
+        }}
+      }
     }
 </script>
 

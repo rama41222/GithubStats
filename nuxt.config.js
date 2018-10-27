@@ -39,20 +39,19 @@ module.exports = {
     strategies: {
       github: {
         client_id: '0128f170a2535c58c4ed',
-        user:true,
-        scope:['user','public_repo'],
-        redirect_uri:'http://localhost:3003/callback'
       },
     },
     redirect: {
       login: '/?login=1',
       logout: '/',
+      home:'/dashboard'
     }
   },
   /*
   ** Axios module configuration
   */
   axios: {
+    baseURL:'http://localhost:3001',
   },
   plugins: ['~plugins/vee.js',{ src:'~plugins/spinners.js', ssr: false },'~plugins/axios.js'],
   loading: '~/components/Loading.vue',

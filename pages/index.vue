@@ -1,72 +1,41 @@
 <template>
   <section class="container">
-    <h1>Dashboard</h1>
-    <!--<div>-->
-      <!--<b-form data-vv-scope="loginFrm">-->
-        <!--<b-button-group size="sm">-->
-          <!--<b-button @click="github" variant="outline-success">Github</b-button>-->
-          <!--<b-button @click="check" variant="outline-success">Check</b-button>-->
-        <!--</b-button-group>-->
-      <!--</b-form>-->
-    <!--</div>-->
-
-    <!--<b-modal ref="myModalRef" hide-footer title="Using Component Methods">-->
-      <!--<div class="d-block text-center">-->
-        <!--<h3>Please Login Again</h3>-->
-        <!--<b-button @click="github" variant="outline-success">Github</b-button>-->
-      <!--</div>-->
-      <!--<b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Close Me</b-btn>-->
-    <!--</b-modal>-->
+    <div>
+      <b-form data-vv-scope="loginFrm">
+        <b-button-group size="sm">
+          <a href="http://localhost:3001/auth/github" class="btn btn-outline-success">Github</a>
+          <b-button @click="check" variant="outline-success">Check</b-button>
+        </b-button-group>
+      </b-form>
+    </div>
   </section>
 </template>
 
 <script>
-
   export default {
+    mounted(){
+      if(this.$auth.loggedIn) {
+        this.$router.push('/dashboard');
+      }
+    },
     data(){
       return {
         loginForm: {
-          email:'',
-          password:''
         }
 
       }
     },
     component: {
     },
-    watch: {
-      $route() {
-        this.showLoginModal();
-      }
-    },
     methods: {
-      showLoginModal(){
-        if (typeof this.$route.query.login !== 'undefined' && this.$route.query.login === "1") {
-          this.$toast.error('Please Login ', {icon: "fingerprint"});
-         this.$refs.myModalRef.show();
-          this.$router.push('/')
-        }
-      },
-      hideModal () {
-        this.$refs.myModalRef.hide()
-      },
-      async github(){
-        await this.$auth.loginWith('github').catch(e => {
-          this.$toast.show('Error', {icon: "fingerprint"});
-        })
-      },
       check(){
-        this.$toast.show(this.$auth.loggedIn? this.$auth.loggedIn: "Logged Out!", {icon: "fingerprint"});
-      },
-      logout() {
-        this.$toast.show('Logging out...', {icon: "fingerprint"});
-        this.$auth.logout()
-      },
+        this.$toast.show(this.$auth.loggedIn? this.$auth.loggedIn : "Logged Out!", {icon: "fingerprint"});
+      }
     }
   }
 </script>
 
-<style>
+<style scoped>
   .container {
     min-height: 100vh;
     display: flex;
