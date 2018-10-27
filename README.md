@@ -1,22 +1,33 @@
-# Github-Stats
+### Github-Stats
 
-> My scrumtrulescent Nuxt.js project
+> Sample Github stat dashboard
 
-## Build Setup
+#### Frontend Setup
 
 ``` bash
 # install dependencies
-$ yarn install
+$ npm install
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
+$ npm run dev
 
 # build for production and launch server
-$ yarn run build
-$ yarn start
+$ npm run build
+$ npm start
 
 # generate static project
-$ yarn run generate
+$ npm run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+#### Backend Setup
+
+``` bash
+# install dependencies
+  cd ./server
+$ npm install
+
+# serve with hot reload at localhost:3001
+$ npm run dev
+```
+
+For detailed explanation on how things work, checkout [Medium Blog](https://medium.com/@rama41222/lets-create-a-personalized-dashboard-for-github-75b6f38c2c23).

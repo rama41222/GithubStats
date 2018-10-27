@@ -18,15 +18,6 @@
         this.$router.push('/dashboard');
       }
     },
-    data(){
-      return {
-        loginForm: {
-        }
-
-      }
-    },
-    component: {
-    },
     methods: {
       check(){
         this.$toast.show(this.$auth.loggedIn? this.$auth.loggedIn : "Logged Out!", {icon: "fingerprint"});
@@ -44,15 +35,4 @@
     text-align: center;
   }
 
-  .alert_danger {
-    color: white;
-    font-weight: lighter;
-    font-size: 0.8em;
-    padding: 3px;
-    padding-left: 8px;
-    padding-right: 8px;
-    vertical-align: center;
-    background-color: #18a800;
-    border-radius: 10px;
-  }
 </style>
