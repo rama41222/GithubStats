@@ -39,7 +39,6 @@ module.exports = {
     strategies: {
       github: {
         client_id: '0128f170a2535c58c4ed',
-        client_secret: '8c7da198caf393e3ad94ec5391e470dd826be5a1',
         user:true,
         scope:['user','public_repo'],
         redirect_uri:'http://localhost:3003/callback'

@@ -1,27 +1,25 @@
 <template>
-  <section class="container">
-    <h1>Dashboard</h1>
-    <!--<div>-->
-      <!--<b-form data-vv-scope="loginFrm">-->
-        <!--<b-button-group size="sm">-->
-          <!--<b-button @click="github" variant="outline-success">Github</b-button>-->
-          <!--<b-button @click="check" variant="outline-success">Check</b-button>-->
-        <!--</b-button-group>-->
-      <!--</b-form>-->
-    <!--</div>-->
+    <section class="container">
+      <div>
+        <b-form data-vv-scope="loginFrm">
+          <b-button-group size="sm">
+            <a href="http://localhost:3001/auth/github" class="btn btn-outline-success">Github</a>
+            <b-button @click="check" variant="outline-success">Check</b-button>
+          </b-button-group>
+        </b-form>
+      </div>
 
-    <!--<b-modal ref="myModalRef" hide-footer title="Using Component Methods">-->
-      <!--<div class="d-block text-center">-->
-        <!--<h3>Please Login Again</h3>-->
-        <!--<b-button @click="github" variant="outline-success">Github</b-button>-->
-      <!--</div>-->
-      <!--<b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Close Me</b-btn>-->
-    <!--</b-modal>-->
-  </section>
+      <b-modal ref="myModalRef" hide-footer title="Using Component Methods">
+        <div class="d-block text-center">
+          <h3>Please Login Again</h3>
+          <a href="http://localhost:3001/auth/github" class="btn btn-outline-success">Github</a>
+        </div>
+        <b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Close Me</b-btn>
+      </b-modal>
+    </section>
 </template>
 
 <script>
-
   export default {
     data(){
       return {
@@ -43,7 +41,7 @@
       showLoginModal(){
         if (typeof this.$route.query.login !== 'undefined' && this.$route.query.login === "1") {
           this.$toast.error('Please Login ', {icon: "fingerprint"});
-         this.$refs.myModalRef.show();
+          this.$refs.myModalRef.show();
           this.$router.push('/')
         }
       },
@@ -51,7 +49,7 @@
         this.$refs.myModalRef.hide()
       },
       async github(){
-        await this.$auth.loginWith('github').catch(e => {
+        await this.$.loginWith('github').catch(e => {
           this.$toast.show('Error', {icon: "fingerprint"});
         })
       },
@@ -66,7 +64,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .container {
     min-height: 100vh;
     display: flex;
